@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import java.awt.Font;
 
 public class GameWindow extends JFrame {
 
@@ -44,8 +47,9 @@ public class GameWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(131, 12, 159, 34);
+		JLabel lblNewLabel = new JLabel("Tic Tac Toe");
+		lblNewLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		lblNewLabel.setBounds(102, 11, 159, 34);
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
