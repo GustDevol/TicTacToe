@@ -11,13 +11,20 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import java.awt.Font;
+import javax.swing.JButton;
 
 public class GameWindow extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField t1;
+	private JTextField t2;
+	private JTextField t3;
+	private JTextField t4;
+	private JTextField t5;
+	private JTextField t6;
+	private JTextField t7;
+	private JTextField t8;
+	private JTextField t9;
 
 	/**
 	 * Launch the application.
@@ -41,30 +48,71 @@ public class GameWindow extends JFrame {
 	 */
 	public GameWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 381, 421);
+		setBounds(100, 100, 381, 513);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Tic Tac Toe");
-		lblNewLabel.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
-		lblNewLabel.setBounds(102, 11, 159, 34);
+		lblNewLabel.setFont(new Font("Comic Sans MS", Font.ITALIC, 30));
+		lblNewLabel.setBounds(102, 11, 202, 34);
 		contentPane.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(26, 58, 85, 55);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		t1 = new JTextField();
+		t1.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
+		t1.setBounds(26, 58, 85, 55);
+		contentPane.add(t1);
+		t1.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(141, 58, 85, 55);
-		contentPane.add(textField_1);
+		t2 = new JTextField();
+		t2.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
+		t2.setBounds(141, 58, 85, 55);
+		contentPane.add(t2);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(254, 58, 85, 55);
-		contentPane.add(textField_2);
+		t3 = new JTextField();
+		t3.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
+		t3.setBounds(254, 58, 85, 55);
+		contentPane.add(t3);
+		
+		t4 = new JTextField();
+		t4.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
+		t4.setBounds(26, 159, 85, 55);
+		contentPane.add(t4);
+		
+		t5 = new JTextField();
+		t5.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
+		t5.setBounds(141, 159, 85, 55);
+		contentPane.add(t5);
+		
+		t6 = new JTextField();
+		t6.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
+		t6.setBounds(254, 159, 85, 55);
+		contentPane.add(t6);
+		
+		t7 = new JTextField();
+		t7.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
+		t7.setBounds(26, 265, 85, 55);
+		contentPane.add(t7);
+		
+		t8 = new JTextField();
+		t8.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
+		t8.setBounds(141, 265, 85, 55);
+		contentPane.add(t8);
+		
+		t9 = new JTextField();
+		t9.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
+		t9.setBounds(254, 265, 85, 55);
+		contentPane.add(t9);
+		
+		JButton but = new JButton("PUT");
+		but.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
+		but.setBounds(128, 422, 123, 44);
+		contentPane.add(but);
+		
+		JLabel lblNewLabel_1 = new JLabel("Sokratis Papasthopoulous WINS.");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel_1.setBounds(10, 360, 357, 44);
+		contentPane.add(lblNewLabel_1);
 	}
 }
