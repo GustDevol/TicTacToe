@@ -12,24 +12,32 @@ import javax.swing.JComboBox;
 import javax.swing.JTable;
 import java.awt.Font;
 import javax.swing.JButton;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GameWindow extends JFrame {
 
+	private String symbols = new String("XO");
+	private int count = 0;
 	private JPanel contentPane;
-	private JTextField t1;
-	private JTextField t2;
-	private JTextField t3;
-	private JTextField t4;
-	private JTextField t5;
-	private JTextField t6;
-	private JTextField t7;
-	private JTextField t8;
-	private JTextField t9;
+	public JTextField t;
+	public JTextField t1;
+	public JTextField t2;
+	public JTextField t3;
+	public JTextField t4;
+	public JTextField t5;
+	public JTextField t6;
+	public JTextField t7;
+	public JTextField t8;
+	public JTextField t9;
+	private JLabel win;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void startGame() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -48,7 +56,7 @@ public class GameWindow extends JFrame {
 	 */
 	public GameWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 381, 513);
+		setBounds(100, 100, 391, 513);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -60,12 +68,24 @@ public class GameWindow extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		t1 = new JTextField();
+		t1.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				t = t1;
+			}
+		});
 		t1.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
 		t1.setBounds(26, 58, 85, 55);
 		contentPane.add(t1);
 		t1.setColumns(10);
 		
 		t2 = new JTextField();
+		t2.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				t = t2;
+			}
+		});
 		t2.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
 		t2.setBounds(141, 58, 85, 55);
 		contentPane.add(t2);
@@ -105,14 +125,28 @@ public class GameWindow extends JFrame {
 		t9.setBounds(254, 265, 85, 55);
 		contentPane.add(t9);
 		
-		JButton but = new JButton("PUT");
+		JButton but = new JButton("PUT " + symbols.charAt( 0 ));
+		but.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(t.isEditable()) {
+					t.setText(" " + symbols.charAt( count%2 ));
+					t.setEditable(false);
+					count++;
+				}
+				but.setText("PUT" + " " + symbols.charAt( count%2 ));
+				if(count == 9)
+					but.setVisible(false);
+			}
+		});
 		but.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
-		but.setBounds(128, 422, 123, 44);
+		but.setBounds(102, 422, 202, 44);
 		contentPane.add(but);
 		
-		JLabel lblNewLabel_1 = new JLabel("Sokratis Papasthopoulous WINS.");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_1.setBounds(10, 360, 357, 44);
-		contentPane.add(lblNewLabel_1);
+		win = new JLabel();
+		win.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		win.setBounds(0, 358, 375, 44);
+		contentPane.add(win);
 	}
+	public static void main(String args[]) {startGame();}
 }
+
