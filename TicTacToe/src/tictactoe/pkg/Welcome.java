@@ -11,6 +11,8 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Welcome extends JFrame {
 
@@ -19,11 +21,12 @@ public class Welcome extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	static Welcome frame;
+	public static void launch() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Welcome frame = new Welcome();
+					frame = new Welcome();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -61,6 +64,14 @@ public class Welcome extends JFrame {
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("LET'S GO");
+		btnNewButton.addActionListener(new ActionListener() {
+			@SuppressWarnings("static-access")
+			public void actionPerformed(ActionEvent e) {
+				Welcome.frame.setVisible(false);
+				Details.players();
+				
+			}
+		});
 		btnNewButton.setForeground(Color.GREEN);
 		btnNewButton.setBackground(Color.BLUE);
 		btnNewButton.setFont(new Font("Stencil", Font.PLAIN, 30));
@@ -74,7 +85,9 @@ public class Welcome extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("Version 1.0.1");
 		lblNewLabel_1.setFont(new Font("Stencil", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(195, 57, 134, 23);
+		lblNewLabel_1.setBounds(195, 57, 147, 23);
 		contentPane.add(lblNewLabel_1);
 	}
+	
+	public static void main(String asd[])throws Exception{launch();}
 }

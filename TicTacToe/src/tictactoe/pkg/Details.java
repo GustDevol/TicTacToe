@@ -26,7 +26,7 @@ public class Details extends JFrame {
 	 * Launch the application.
 	 */
 	static Details frame;
-	public static void main(String[] args) {
+	public static void players() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
