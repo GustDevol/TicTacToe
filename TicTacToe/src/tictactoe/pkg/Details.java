@@ -21,6 +21,8 @@ public class Details extends JFrame {
 	private JTextField ts1;
 	private JTextField tp2;
 	private JTextField ts2;
+	static String p1="" , p2="" ;
+	static String s1 , s2 ;
 
 	/**
 	 * Launch the application.
@@ -75,7 +77,7 @@ public class Details extends JFrame {
 		lblNewLabel_2.setBounds(49, 250, 476, 51);
 		contentPane.add(lblNewLabel_2);
 		
-		ts1 = new JTextField();
+		ts1 = new JTextField("X");
 		ts1.setBounds(400, 261, 125, 29);
 		contentPane.add(ts1);
 		ts1.setColumns(10);
@@ -97,7 +99,7 @@ public class Details extends JFrame {
 		lblNewLabel_4.setBounds(49, 402, 476, 29);
 		contentPane.add(lblNewLabel_4);
 		
-		ts2 = new JTextField();
+		ts2 = new JTextField("O");
 		ts2.setBounds(409, 402, 116, 29);
 		contentPane.add(ts2);
 		ts2.setColumns(10);
@@ -105,6 +107,8 @@ public class Details extends JFrame {
 		JButton butt = new JButton("START GAME");
 		butt.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Details.s2 = (String.valueOf(ts2.getText())).toUpperCase();
+				Details.s1 = (String.valueOf(ts1.getText())).toUpperCase();
 				Details.frame.setVisible(false);
 				GameWindow.startGame();
 			}

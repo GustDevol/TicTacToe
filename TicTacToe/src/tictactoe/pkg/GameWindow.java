@@ -20,7 +20,7 @@ import java.awt.Color;
 
 public class GameWindow extends JFrame {
 
-	private String symbols = new String("XO");
+	String symbols = String.valueOf(Details.s1 + Details.s2);
 	private int count = 0;
 	private JPanel contentPane;
 	public JTextField t;
