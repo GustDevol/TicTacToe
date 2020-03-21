@@ -176,14 +176,18 @@ public class GameWindow extends JFrame {
 		but.setBackground(Color.GREEN);
 		but.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(count >= 9)
+					System.exit(0);
 				if(t.isEditable()) {
 					t.setText(" " + symbols.charAt( count%2 ));
 					t.setEditable(false);
 					count++;
 				}
 				but.setText("PUT" + " " + symbols.charAt( count%2 ));
-				if(count == 9)
-					but.setVisible(false);
+				if(count == 9) {
+//					but.setVisible(false);
+					but.setText(" EXIT ");
+				}
 			}
 		});
 		but.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
