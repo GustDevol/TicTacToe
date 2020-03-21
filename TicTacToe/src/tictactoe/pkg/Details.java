@@ -67,6 +67,7 @@ public class Details extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		tp1 = new JTextField();
+		tp1.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 20));
 		tp1.setBounds(167, 187, 358, 29);
 		contentPane.add(tp1);
 		tp1.setColumns(10);
@@ -78,6 +79,7 @@ public class Details extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		ts1 = new JTextField("X");
+		ts1.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 20));
 		ts1.setBounds(400, 261, 125, 29);
 		contentPane.add(ts1);
 		ts1.setColumns(10);
@@ -89,6 +91,7 @@ public class Details extends JFrame {
 		contentPane.add(lblNewLabel_3);
 		
 		tp2 = new JTextField();
+		tp2.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 20));
 		tp2.setBounds(167, 325, 358, 31);
 		contentPane.add(tp2);
 		tp2.setColumns(10);
@@ -100,6 +103,7 @@ public class Details extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		ts2 = new JTextField("O");
+		ts2.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 20));
 		ts2.setBounds(409, 402, 116, 29);
 		contentPane.add(ts2);
 		ts2.setColumns(10);
@@ -109,6 +113,8 @@ public class Details extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Details.s2 = (String.valueOf(ts2.getText())).toUpperCase();
 				Details.s1 = (String.valueOf(ts1.getText())).toUpperCase();
+				Details.p1 = (String.valueOf(tp1.getText()));
+				Details.p2 = (String.valueOf(tp2.getText()));
 				Details.frame.setVisible(false);
 				GameWindow.startGame();
 			}
