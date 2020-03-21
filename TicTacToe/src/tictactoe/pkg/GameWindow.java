@@ -16,6 +16,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class GameWindow extends JFrame {
 
@@ -58,13 +59,16 @@ public class GameWindow extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 391, 513);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.BLUE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Tic Tac Toe");
-		lblNewLabel.setFont(new Font("Comic Sans MS", Font.ITALIC, 30));
-		lblNewLabel.setBounds(102, 11, 202, 34);
+		lblNewLabel.setForeground(Color.GREEN);
+		lblNewLabel.setBackground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Snap ITC", Font.ITALIC, 30));
+		lblNewLabel.setBounds(85, 14, 202, 34);
 		contentPane.add(lblNewLabel);
 		
 		t1 = new JTextField();
@@ -91,41 +95,85 @@ public class GameWindow extends JFrame {
 		contentPane.add(t2);
 		
 		t3 = new JTextField();
+		t3.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				t=t3;
+			}
+		});
 		t3.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
 		t3.setBounds(254, 58, 85, 55);
 		contentPane.add(t3);
 		
 		t4 = new JTextField();
+		t4.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				t=t4;
+			}
+		});
 		t4.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
 		t4.setBounds(26, 159, 85, 55);
 		contentPane.add(t4);
 		
 		t5 = new JTextField();
+		t5.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				t=t5;
+			}
+		});
 		t5.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
 		t5.setBounds(141, 159, 85, 55);
 		contentPane.add(t5);
 		
 		t6 = new JTextField();
+		t6.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				t=t6;
+			}
+		});
 		t6.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
 		t6.setBounds(254, 159, 85, 55);
 		contentPane.add(t6);
 		
 		t7 = new JTextField();
+		t7.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				t=t7;
+			}
+		});
 		t7.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
 		t7.setBounds(26, 265, 85, 55);
 		contentPane.add(t7);
 		
 		t8 = new JTextField();
+		t8.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				t=t8;
+			}
+		});
 		t8.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
 		t8.setBounds(141, 265, 85, 55);
 		contentPane.add(t8);
 		
 		t9 = new JTextField();
+		t9.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				t=t9;
+			}
+		});
 		t9.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 43));
 		t9.setBounds(254, 265, 85, 55);
 		contentPane.add(t9);
 		
 		JButton but = new JButton("PUT " + symbols.charAt( 0 ));
+		but.setForeground(Color.BLUE);
+		but.setBackground(Color.GREEN);
 		but.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(t.isEditable()) {
@@ -147,6 +195,5 @@ public class GameWindow extends JFrame {
 		win.setBounds(0, 358, 375, 44);
 		contentPane.add(win);
 	}
-	public static void main(String args[]) {startGame();}
 }
 
