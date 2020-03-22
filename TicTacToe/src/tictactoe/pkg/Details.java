@@ -55,7 +55,7 @@ public class Details extends JFrame {
 		setBounds(100, 100, 559, 516);
 		contentPane = new JPanel();
 		contentPane.setForeground(Color.WHITE);
-		contentPane.setBackground(Color.BLACK);
+		contentPane.setBackground(new Color(0, 0, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

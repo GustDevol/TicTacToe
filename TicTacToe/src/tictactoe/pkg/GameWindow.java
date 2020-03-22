@@ -65,7 +65,7 @@ public class GameWindow extends JFrame {
 		setBounds(100, 100, 433, 513);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(46, 139, 87));
-		contentPane.setBackground(new Color(65, 105, 225));
+		contentPane.setBackground(new Color(139, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -201,8 +201,15 @@ public class GameWindow extends JFrame {
 		but.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(count >= 9) {
-					JOptionPane.showMessageDialog(null , "Thanks for Playing .\nHope you Liked it .");
-					System.exit(0);
+					int a=JOptionPane.showConfirmDialog(null, "Fancy a rematch?");
+					if(a==JOptionPane.YES_OPTION){
+						count=0;
+						GameWindow.startGame();
+					}
+					if(a==JOptionPane.NO_OPTION) {
+						JOptionPane.showMessageDialog(null , "Thanks for Playing .\nHope you Liked it .");
+						System.exit(0);
+					}
 				}
 				if(t.isEditable()) {
 					t.setText(" " + symbols.charAt( count%2 ));
