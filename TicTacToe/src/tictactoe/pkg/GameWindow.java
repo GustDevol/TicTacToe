@@ -231,7 +231,7 @@ public class GameWindow extends JFrame {
 				}
 			}
 		});
-		but.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
+		but.setFont(new Font("Chiller", Font.BOLD, 50));
 		but.setBounds(102, 422, 202, 44);
 		contentPane.add(but);
 		
