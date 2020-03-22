@@ -217,7 +217,7 @@ public class GameWindow extends JFrame {
 				if(count == 9) {
 //					but.setVisible(false);
 					if(!winner)
-						win.setText("Draw .");// Please change the String to as you like @Co-Developer
+						win.setText("Top Level Competition");// Please change the String to as you like @Co-Developer
 					but.setText(" EXIT ");
 				}
 			}
