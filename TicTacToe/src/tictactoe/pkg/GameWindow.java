@@ -238,7 +238,7 @@ public class GameWindow extends JFrame {
 		win = new JLabel();
 		win.setForeground(new Color(255, 99, 71));
 		win.setFont(new Font("Kristen ITC", Font.BOLD | Font.ITALIC, 25));
-		win.setBounds(0, 355, 393, 44);
+		win.setBounds(10, 355, 393, 44);
 		contentPane.add(win);
 	}
 	
