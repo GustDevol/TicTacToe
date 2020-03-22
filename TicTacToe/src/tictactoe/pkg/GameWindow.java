@@ -74,7 +74,7 @@ public class GameWindow extends JFrame {
 		lblNewLabel.setForeground(Color.GREEN);
 		lblNewLabel.setBackground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Snap ITC", Font.ITALIC, 30));
-		lblNewLabel.setBounds(85, 14, 202, 34);
+		lblNewLabel.setBounds(102, 14, 202, 34);
 		contentPane.add(lblNewLabel);
 		
 		t1 = new JTextField();
