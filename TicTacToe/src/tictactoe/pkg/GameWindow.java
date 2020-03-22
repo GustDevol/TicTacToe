@@ -65,7 +65,7 @@ public class GameWindow extends JFrame {
 		setBounds(100, 100, 433, 513);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(46, 139, 87));
-		contentPane.setBackground(new Color(139, 0, 0));
+		contentPane.setBackground(new Color(128, 0, 128));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
