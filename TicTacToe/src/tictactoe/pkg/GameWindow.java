@@ -223,8 +223,10 @@ public class GameWindow extends JFrame {
 					winner = result();
 				if(count == 9) {
 //					but.setVisible(false);
-					if(!winner)
+					if(!winner) {
+						win.setBackground(Color.BLACK);
 						win.setText("Top Level Competition");// Please change the String to as you like @Co-Developer
+					}
 					but.setText(" EXIT ");
 				}
 			}
@@ -279,7 +281,7 @@ public class GameWindow extends JFrame {
 		m1.setBackground(c1);
 		m2.setBackground(c1);
 		m3.setBackground(c1);
-		
+		win.setBackground(Color.BLACK);
 		System.out.println((String.valueOf(m1.getText())).equals(" " + Details.s1));
 		if ((String.valueOf(m1.getText())).equals(" " + Details.s1))
 			win.setText(Details.p1 + " Wins .");
