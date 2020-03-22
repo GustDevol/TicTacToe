@@ -236,17 +236,18 @@ public class GameWindow extends JFrame {
 	public static boolean result() {
 		arr = new JTextField[]{t1 ,t2 ,t3 ,t4 , t5 , t6 ,t7 , t8 ,t9};
 		
-		if(textFieldEquality(arr[0] , arr[4] , arr[8])) //Left Diagonal
+		if(textFieldEquality(arr[0] , arr[4] , arr[8]) && nonEmpty(arr[0] , arr[4] , arr[8])) //Left Diagonal
 			return changeColor(arr[0] , arr[4] , arr[8] , win);
-		if(textFieldEquality(arr[2] , arr[4] , arr[6]))
+		
+		if(textFieldEquality(arr[2] , arr[4] , arr[6])  && nonEmpty(arr[2] , arr[4] , arr[6]))
 			return changeColor(arr[2] , arr[4] , arr[6] , win);  //Right Diagonal
 //		Row wise
 		for(int i=0 ; i<=6 ; i += 3)
-			if(textFieldEquality(arr[i] , arr[i + 1] , arr[i + 2]))
+			if(textFieldEquality(arr[i] , arr[i + 1] , arr[i + 2]) && nonEmpty(arr[i] , arr[i + 1] , arr[i + 2]))
 				return changeColor(arr[i] , arr[i + 1] , arr[i + 2] , win);
 //		Column wise
 		for(int i=0 ; i<3 ; i++)
-			if(textFieldEquality(arr[i] , arr[i + 3] , arr[i + 6]))
+			if(textFieldEquality(arr[i] , arr[i + 3] , arr[i + 6]) && nonEmpty(arr[i] , arr[i + 3] , arr[i + 6]))
 				return changeColor(arr[i] , arr[i + 3] , arr[i + 6] , win);
 //		No match
 		return false;
@@ -255,6 +256,10 @@ public class GameWindow extends JFrame {
 	
 	public static boolean textFieldEquality(JTextField m1 , JTextField m2 , JTextField m3) {
 		return m1.getText().equals(m2.getText()) && m3.getText().equals(m2.getText()) ; 
+	}
+	
+	public static boolean nonEmpty(JTextField m1 ,JTextField m2 , JTextField m3) {
+		return !( m1.getText().trim().isEmpty() || m2.getText().trim().isEmpty() || m3.getText().trim().isEmpty() );
 	}
 
 	public static boolean changeColor(JTextField m1 ,JTextField m2 , JTextField m3 , JLabel win) {
