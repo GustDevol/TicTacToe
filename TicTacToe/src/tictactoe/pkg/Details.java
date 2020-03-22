@@ -7,12 +7,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Details extends JFrame {
 
@@ -46,7 +52,7 @@ public class Details extends JFrame {
 	 */
 	public Details() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 549, 516);
+		setBounds(100, 100, 559, 516);
 		contentPane = new JPanel();
 		contentPane.setForeground(Color.WHITE);
 		contentPane.setBackground(Color.BLACK);
@@ -66,7 +72,18 @@ public class Details extends JFrame {
 		lblNewLabel_1.setBounds(43, 171, 482, 57);
 		contentPane.add(lblNewLabel_1);
 		
-		tp1 = new JTextField();
+		tp1 = new JTextField("Player 1");
+		tp1.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				tp1.setText("");
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(tp1.getText().trim().isEmpty())
+					tp1.setText("Player 1");
+			}
+		});
 		tp1.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 20));
 		tp1.setBounds(167, 187, 358, 29);
 		contentPane.add(tp1);
@@ -79,6 +96,17 @@ public class Details extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		ts1 = new JTextField("X");
+		ts1.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				ts1.setText("");
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(ts1.getText().trim().isEmpty())
+					ts1.setText("X");
+			}
+		});
 		ts1.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 20));
 		ts1.setBounds(400, 261, 125, 29);
 		contentPane.add(ts1);
@@ -90,7 +118,22 @@ public class Details extends JFrame {
 		lblNewLabel_3.setBounds(43, 325, 482, 29);
 		contentPane.add(lblNewLabel_3);
 		
-		tp2 = new JTextField();
+		tp2 = new JTextField("Player 2");
+		tp2.addFocusListener(new FocusAdapter() {
+//			@Override
+//			public void focusGained(FocusEvent e) {
+//				tp2.setText("");
+//			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(tp2.getText().trim().isEmpty())
+					tp2.setText("Player 2");
+			}
+			@Override
+			public void focusGained(FocusEvent e) {
+				tp2.setText("");
+			}
+		});
 		tp2.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 20));
 		tp2.setBounds(167, 325, 358, 31);
 		contentPane.add(tp2);
@@ -103,26 +146,57 @@ public class Details extends JFrame {
 		contentPane.add(lblNewLabel_4);
 		
 		ts2 = new JTextField("O");
+		ts2.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				ts2.setText("");
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(ts2.getText().trim().isEmpty())
+					ts2.setText("O");
+			}
+		});
 		ts2.setFont(new Font("Franklin Gothic Demi Cond", Font.PLAIN, 20));
 		ts2.setBounds(409, 402, 116, 29);
 		contentPane.add(ts2);
 		ts2.setColumns(10);
 		
 		JButton butt = new JButton("START GAME");
-		butt.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Details.s2 = (String.valueOf(ts2.getText())).toUpperCase();
-				Details.s1 = (String.valueOf(ts1.getText())).toUpperCase();
-				Details.p1 = (String.valueOf(tp1.getText()));
-				Details.p2 = (String.valueOf(tp2.getText()));
-				Details.frame.setVisible(false);
-				GameWindow.startGame();
+		butt.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				butt.setBackground(Color.GREEN);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				butt.setBackground(Color.BLACK);
 			}
 		});
-		butt.setBackground(Color.GREEN);
-		butt.setForeground(Color.BLUE);
+		butt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Details.s1 = checkedInput(ts1).substring(0 , 1).toUpperCase();
+				Details.s2 = checkedInput(ts2).substring(0 , 1).toUpperCase();
+				Details.p1 = checkedInput(tp1);
+				Details.p2 = checkedInput(tp2);
+							
+				Details.frame.setVisible(false);
+				GameWindow.startGame();
+				
+			}
+		});
+		
+		butt.setForeground(new Color(30, 144, 255));
+		butt.setBackground(Color.BLACK);
 		butt.setFont(new Font("Papyrus", Font.BOLD, 15));
 		butt.setBounds(154, 10, 199, 38);
 		contentPane.add(butt);
 	}
+	
+	public static String checkedInput(JTextField t) {
+
+		return String.valueOf(t.getText());
+	}
+		
 }

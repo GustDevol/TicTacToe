@@ -13,6 +13,11 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
 
 public class Welcome extends JFrame {
 
@@ -60,10 +65,21 @@ public class Welcome extends JFrame {
 		textArea.setEditable(false);
 		textArea.setBackground(Color.ORANGE);
 		textArea.setFont(new Font("Palatino Linotype", Font.PLAIN, 15));
-		textArea.setBounds(10, 92, 523, 319);
+		textArea.setBounds(10, 92, 523, 314);
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("LET'S GO");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnNewButton.setBackground(new Color(30, 144, 255));
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnNewButton.setBackground(Color.LIGHT_GRAY);
+			}
+		});
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
@@ -73,9 +89,9 @@ public class Welcome extends JFrame {
 			}
 		});
 		btnNewButton.setForeground(Color.GREEN);
-		btnNewButton.setBackground(Color.BLUE);
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.setFont(new Font("Stencil", Font.PLAIN, 30));
-		btnNewButton.setBounds(174, 421, 189, 37);
+		btnNewButton.setBounds(174, 411, 189, 47);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("Tic Tac Toe");
