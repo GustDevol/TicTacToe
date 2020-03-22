@@ -105,5 +105,5 @@ public class Welcome extends JFrame {
 		contentPane.add(lblNewLabel_1);
 	}
 	
-//	public static void main(String asd[])throws Exception{launch();}
+
 }
