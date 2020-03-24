@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import jsound.audio.SimpleAudio;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -174,7 +177,21 @@ public class Details extends JFrame {
 			}
 		});
 		butt.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
+				
+				Thread snd = new Thread(new Sound() {
+					SimpleAudio player;
+					public void run() {
+						try {
+							player = new SimpleAudio("beep-6.wav",false);
+							player.play();
+						}catch(Exception e) {
+							System.err.println(e);
+						}
+					}
+				});
+				snd.start();	
 				
 				Details.s1 = checkedInput(ts1).substring(0 , 1).toUpperCase();
 				Details.s2 = checkedInput(ts2).substring(0 , 1).toUpperCase();
