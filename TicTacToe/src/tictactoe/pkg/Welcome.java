@@ -100,6 +100,19 @@ public class Welcome extends JFrame {
 				});
 				nolo.start();
 				
+				Thread snd = new Thread(new Sound() {
+					SimpleAudio player;
+					public void run() {
+						try {
+							player = new SimpleAudio("welcome.wav",false);
+							player.play();
+						}catch(Exception e) {
+							System.err.println(e);
+						}
+					}
+				});
+				snd.start();
+				
 				Welcome.frame.setVisible(false);
 				Details.players();
 				
