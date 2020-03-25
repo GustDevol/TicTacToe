@@ -43,11 +43,12 @@ public class GameWindow extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	static GameWindow frame;
 	public static void startGame() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GameWindow frame = new GameWindow();
+					frame = new GameWindow();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -204,6 +205,7 @@ public class GameWindow extends JFrame {
 					int a=JOptionPane.showConfirmDialog(null, "Fancy a rematch?");
 					if(a==JOptionPane.YES_OPTION){
 						count=0;
+						GameWindow.frame.setVisible(false);
 						GameWindow.startGame();
 					}
 					if(a==JOptionPane.NO_OPTION) {
