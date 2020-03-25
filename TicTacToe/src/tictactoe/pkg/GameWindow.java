@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import jsound.audio.SimpleAudio;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -201,6 +204,20 @@ public class GameWindow extends JFrame {
 		but.setBackground(Color.GREEN);
 		but.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Thread nolo=new Thread(new Sound() {
+					SimpleAudio playa;
+					public void run(){
+						try {
+							playa = new SimpleAudio("beep-6.wav",false);
+							playa.play();
+						}
+						catch(Exception e) {
+							System.err.println(e);
+						}
+					}
+				});
+				nolo.start();
+				
 				if(count >= 9) {
 					int a=JOptionPane.showConfirmDialog(null, "Fancy a rematch?");
 					if(a==JOptionPane.YES_OPTION){
@@ -209,6 +226,20 @@ public class GameWindow extends JFrame {
 						GameWindow.startGame();
 					}
 					if(a==JOptionPane.NO_OPTION) {
+						Thread nolo=new Thread(new Sound() {
+							SimpleAudio playa;
+							public void run(){
+								try {
+									playa = new SimpleAudio("Thanku.wav",false);
+									playa.play();
+								}
+								catch(Exception e) {
+									System.err.println(e);
+								}
+							}
+						});
+						nolo.start();
+						
 						JOptionPane.showMessageDialog(null , "Thanks for Playing .\nHope you Liked it .");
 						System.exit(0);
 					}

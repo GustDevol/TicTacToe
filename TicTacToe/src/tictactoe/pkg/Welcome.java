@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import jsound.audio.SimpleAudio;
+
 import javax.swing.JTextArea;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -83,6 +86,20 @@ public class Welcome extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			@SuppressWarnings("static-access")
 			public void actionPerformed(ActionEvent e) {
+				Thread nolo=new Thread(new Sound() {
+					SimpleAudio playa;
+					public void run(){
+						try {
+							playa = new SimpleAudio("beep-6.wav",false);
+							playa.play();
+						}
+						catch(Exception e) {
+							System.err.println(e);
+						}
+					}
+				});
+				nolo.start();
+				
 				Welcome.frame.setVisible(false);
 				Details.players();
 				
