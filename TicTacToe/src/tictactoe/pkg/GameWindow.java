@@ -226,7 +226,7 @@ public class GameWindow extends JFrame {
 						GameWindow.startGame();
 					}
 					if(a==JOptionPane.NO_OPTION) {
-						Thread nolo=new Thread(new Sound() {
+						Thread narla=new Thread(new Sound() {
 							SimpleAudio playa;
 							public void run(){
 								try {
@@ -238,7 +238,7 @@ public class GameWindow extends JFrame {
 								}
 							}
 						});
-						nolo.start();
+						narla.start();
 						
 						JOptionPane.showMessageDialog(null , "Thanks for Playing .\nHope you Liked it .");
 						System.exit(0);
