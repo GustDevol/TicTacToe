@@ -203,7 +203,9 @@ public class GameWindow extends JFrame {
 		but.setForeground(Color.BLUE);
 		but.setBackground(Color.GREEN);
 		but.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
+				
 				Thread nolo=new Thread(new Sound() {
 					SimpleAudio playa;
 					public void run(){
@@ -226,6 +228,7 @@ public class GameWindow extends JFrame {
 						GameWindow.startGame();
 					}
 					if(a==JOptionPane.NO_OPTION) {
+						Controller.sound.stop();
 						Thread narla=new Thread(new Sound() {
 							SimpleAudio playa;
 							public void run(){

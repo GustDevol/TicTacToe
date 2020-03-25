@@ -21,7 +21,7 @@ public class Controller {
 	public static Thread game , sound;
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		game = new Game();
 		
 		sound = new Thread(new PlaySound() {
@@ -47,7 +47,7 @@ public class Controller {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		sound.stop();
+//		sound.stop();
 		
 	}
 
