@@ -28,6 +28,14 @@ For Cloning use command : -
 
 ### Here are a few snapshots of the game .
 
+![](/images/welcome.PNG)
+
+
+![](/images/details.PNG)
+
+
+![](/images/gamewindow.PNG)
+  
   
 ##  We hope you like it .
   
