@@ -11,6 +11,26 @@
   
   We are pretty sure this application will remind you of your childhood.
   
-#  We hope you like it .
+  # Run Guide
+Clone or Download
+
+For Cloning use command : -
+
+##### $ git clone https://github.com/GustDevol/TicTacToe.git
+
+[git](https://git-scm.com/download/) should be installed .
   
-#  ENJOY
+#### [JAVA](https://www.oracle.com/java/technologies/javase-downloads.html) JDK 9 or above with JRE should be installed to run .jar(Java Archive) and play the game.
+
+##### If all the dependencies are installed , then in the cloned local repository open TicTacToe.jar and start the game .
+
+##### Start the game and then fill the player details to enjoy playing the game .
+
+### Here are a few snapshots of the game .
+
+  
+##  We hope you like it .
+  
+##  ENJOY
+
+# Thank you
